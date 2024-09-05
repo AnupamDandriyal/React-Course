@@ -1,0 +1,14 @@
+
+.navigation{
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  height:72px;
+  align-items: center;
+}
+
+.navigation li{
+  display: inline-block;
+  font-weight: 550;
+  margin-left: 25px;
+}

@@ -1,0 +1,12 @@
+.contactform{
+  width:75%;
+  margin:0 auto;
+  margin-top:50px;
+}
+
+.btns{
+  display: flex;
+  gap:25px;
+}
+
+

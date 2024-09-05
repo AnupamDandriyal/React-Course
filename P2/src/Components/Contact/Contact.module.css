@@ -1,0 +1,16 @@
+.contact{
+  width:75%;
+  margin: 0 auto;
+  margin-top:50px;
+}
+
+.contact h1{
+  font-size: 3rem;
+}
+
+.contact p{
+  text-transform: uppercase;
+  font-weight: 550;
+  width:85%;
+  color: grey;
+}
