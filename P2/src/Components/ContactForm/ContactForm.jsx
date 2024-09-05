@@ -3,8 +3,22 @@ import Button from '../Buttons/Button'
 import { MdMessage } from 'react-icons/md'
 import { FaPhoneAlt } from 'react-icons/fa'
 import {HiMail} from 'react-icons/hi'
+import { useState } from 'react'
 
 const ContactForm = () => {
+  const [name, setName] = useState('User');
+  const [email, setEmail] = useState('user@gmail.com');
+  const [msg, setMsg] = useState('Your Message');
+  const submitForm = (e) => {
+    e.preventDefault();
+    setName(e.target[0].value);
+    setEmail(e.target[1].value);
+    setMsg(e.target[2].value)
+    /* console.log("Name:", e.target[0].value);
+    console.log("E-mail:", e.target[1].value);
+    console.log("Message:", e.target[2].value); */
+
+  }
   return (
     <div className={`container ${styles.contactform}`}>
       <div className={styles.left}>
@@ -17,7 +31,8 @@ const ContactForm = () => {
           />
         </div>
         <Button isOutline={true} text="via email form" icon={<HiMail fontSize="16px" />}></Button>
-        <form>
+
+        <form onSubmit={submitForm}>
           <div className={styles.inputContainer}>
             <label htmlFor="name" className={styles.label}>Name</label>
             <input type="text" name='name' className={styles.input} />
@@ -30,13 +45,13 @@ const ContactForm = () => {
 
           <div className={styles.inputContainer}>
             <label htmlFor="msg" className={styles.label}>Message</label>
-            <input type="text" name='msg' className={styles.text} />
+            <textarea type="text" name='msg' className={styles.text} />
           </div>
 
           <div className={styles.submitBtn}>
           <Button text='submit'/>
           </div>
-          
+          <div>{name + " (" + email + ") sent: " + msg}</div>
         </form>
       </div>
       <div className={styles.right}>
