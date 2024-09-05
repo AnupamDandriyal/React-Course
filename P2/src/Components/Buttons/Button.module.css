@@ -1,15 +1,28 @@
 .primaryBtn{
   background-color: rgb(2, 2, 95);
-  width:200px;
+  width:48%;
   color:white;
   text-transform: uppercase;
-  height:40px;
+  height:50px;
   border:none;
   outline: none;
   font-weight: 550;
-  margin-right: 25px;
   border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+
+.OutlineBtn{
+  margin-top:20px;
+  width:100%;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  height:50px;
+  font-weight: 550;
+  cursor: pointer;
 }

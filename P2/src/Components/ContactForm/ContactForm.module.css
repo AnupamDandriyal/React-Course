@@ -1,12 +1,64 @@
 .contactform{
   width:75%;
   margin:0 auto;
-  margin-top:50px;
+  margin-top:30px;
+  display: flex;
+  justify-content: space-between;
 }
 
+.left{
+  width:50%;
+}
+
+.right{
+  width:40%;
+}
+
+.right img{
+  margin-top:-15px;
+  width:115%
+}
 .btns{
   display: flex;
-  gap:25px;
+  gap:55px;
 }
 
 
+.inputContainer{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  margin-top:25px;
+  position: relative;
+}
+
+.input{
+  height: 45px;
+  border:2px solid rgb(2, 2, 95);
+  border-radius: 3px;
+  padding-left: 10px;
+  display: flex;
+}
+
+.label{
+  margin-left: 25px;
+  font-weight: 550;
+  color:rgb(2, 2, 95);
+  position: absolute;
+  top:-12px;
+  z-index: 2;
+  background-color: white;
+  font-size: 17px;
+}
+
+.text{
+  height: 100px;
+  border:2px solid rgb(2, 2, 95);
+  border-radius: 3px;
+  padding-left: 10px;
+  margin-bottom: 25px;
+}
+ .submitBtn{
+ display: flex;
+ justify-content: flex-end;
+ }
