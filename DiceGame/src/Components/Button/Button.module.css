@@ -1,0 +1,42 @@
+.btn{
+  height:50px;
+  width:50px;
+  font-size: 20px;
+  font-weight: 550;
+  border-radius: 3px;
+  border:2px solid grey;
+  cursor: pointer;
+}
+
+
+.active{
+  color:white;
+  background-color: black;
+  height:50px;
+  width:50px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.primaryBtn{
+  height:40px;
+  width:85%;
+  color:black;
+  background-color: white;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.dark{
+  height:40px;
+  width:85%;
+  color:white;
+  background-color: black;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  font-weight: 550;
+  border:none;
+  cursor: pointer;
+}
