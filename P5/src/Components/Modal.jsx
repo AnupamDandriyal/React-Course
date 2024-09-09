@@ -4,11 +4,12 @@ const Modal = ({ onClose, isOpen, children }) => {
   
   return createPortal(
     
+    
     <>{isOpen &&
       <>
         <div className="min-h-[200px] max-w-[80%] bg-violet-200 m-auto p-4 relative z-20 rounded-md">
           <div className='flex justify-end'>
-            <AiOutlineClose className='text-2xl' onClick={onClose} />
+            <AiOutlineClose onClick={onClose} className='text-2xl cursor-pointer'  />
         </div>
         <div className='text-black font-medium'>
         {children}
