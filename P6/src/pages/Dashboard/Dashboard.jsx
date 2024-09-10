@@ -1,8 +1,11 @@
+import DashboardLayout from "../../Components/DashboardLayout"
 
 
-const Dashboard = () => {
+const Dashboard =  () => {
   return (
-    <div>Dashboard</div>
+    <DashboardLayout title='Dashboard'>
+      <div>Hello</div>
+    </DashboardLayout>
   )
 }
 
