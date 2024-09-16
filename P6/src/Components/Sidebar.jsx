@@ -18,7 +18,7 @@ const Sidebar = () => {
     }
   ]
   return (
-    <Stack justify='space-between' boxShadow="md" w="16rem" h="100vh">
+    <Stack justify='space-between' boxShadow={{base:'none',lg:'md'}} w={{base:'full',lg:'16rem'}} h="100vh" bg='white'>
       <Box>
       <Heading textAlign='center' pt='3.5rem' fontSize='20px' textColor='blueviolet' as="h1">CODERS-HUB</Heading>
       <Box mt='6' mx='3' fontWeight='medium' color='#797E82'>

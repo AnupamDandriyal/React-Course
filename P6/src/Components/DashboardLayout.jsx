@@ -1,15 +1,25 @@
 
-import { Box, Flex } from "@chakra-ui/react"
+import { Box, Container, Flex, useDisclosure } from "@chakra-ui/react"
 import Sidebar from "../Components/Sidebar"
 import Topbar from "../Components/Topbar"
+import SideDrawer from "./SideDrawer"
 
-const DashboardLayout = ({title,children}) => {
+const DashboardLayout = ({ title, children }) => {
+  const {isOpen,onClose,onOpen} = useDisclosure()
   return (
     <Flex>
-      <Sidebar />
+      <Box
+        display={{
+          base: 'none',
+          lg:'flex',
+      }}
+      >
+         <Sidebar />
+      </Box>
+      <SideDrawer isOpen={isOpen} onClose={onClose} />
       <Box flexGrow={1}>
-        <Topbar title={title} />
-        <Box px='4'>{children}</Box>
+        <Topbar title={title} onOpen={onOpen}/>
+        <Container mt='6' maxW='70rem'>{children}</Container>
       </Box>
     </Flex>
   )
