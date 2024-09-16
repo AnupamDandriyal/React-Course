@@ -32,7 +32,7 @@ const PriceSection = () => {
           <TabList bg='black.5' p='5px' borderRadius='4px'>
             {
               ["1H", "1D", "1W", "1M"].map((tab) => (
-                <Tab _selected={{bg:"white"}} fontSize='sm' p='6px' borderRadius='4px'>{tab}</Tab>
+                <Tab _selected={{bg:"white"}} key={tab} fontSize='sm' p='3px' borderRadius='4px'>{tab}</Tab>
               ))
             }
         </TabList>
