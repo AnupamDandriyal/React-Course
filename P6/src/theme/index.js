@@ -82,6 +82,23 @@ export const theme = extendTheme(
 
         lineHeight: { base: "20px", md: "22px" },
       },
+      p3: {
+        fontSize: {
+          base: "12px",
+        },
+        color: "p.black",
+
+        lineHeight: { base: "14px"},
+      },
+
+      p2: {
+        fontSize: {
+          base: "14px",
+        },
+        color: "p.black",
+
+        lineHeight: { base: "18px"},
+      },
     },
 
     fontSizes: {
@@ -95,10 +112,10 @@ export const theme = extendTheme(
       "4xl": { base: "30px", md: "32px" },
     },
     styles: {
-      global: {
+      global:{
         // styles for the `body`
         body: {
-          bg: "#F3F3F7",
+          bg: 'white',
         },
       },
     },
