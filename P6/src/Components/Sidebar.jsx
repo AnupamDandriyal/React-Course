@@ -2,9 +2,14 @@ import { Box, Heading, HStack, Icon, Stack,Text } from '@chakra-ui/react'
 import { RxDashboard } from 'react-icons/rx';
 import { GrTransaction } from 'react-icons/gr';
 import { BiSupport } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link,useLocation} from 'react-router-dom';
+
 
 const Sidebar = () => {
+  const loaction = useLocation()
+  const isActiveLink = (link) => {
+    return location.pathname == link
+}
 
   const navLinks = [
     {
@@ -44,7 +49,7 @@ const Sidebar = () => {
       </Box>
       <Box m='6' mx='3' fontWeight='medium' color='#797E82'>
         <Link to='/support'>
-        <HStack py='3' px='4' borderRadius='5px'
+        <HStack py='3' px='4' borderRadius='10px'
             _hover={{
               bg: '#F3F3F7',
               color: 'black',
