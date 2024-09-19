@@ -1,20 +1,20 @@
 
-import {  Center, Container, FormControl, HStack, Input, Stack, Text, FormLabel, InputGroup, InputRightElement, Button, Checkbox, Box, FormErrorMessage } from '@chakra-ui/react'
+import {  Center, Container, FormControl, HStack, Input, Stack, Text, FormLabel, Button, Checkbox, FormErrorMessage } from '@chakra-ui/react'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
-import { object, string,} from 'yup';
-
-const signinValidationSchema = object({
-  email: string().email('Email is invalid').required('Email is required'),
-  password: string().min(6, 'Password must be atleast of 6 characters')
-    .required('Password is required'),
-})
-
+import { object, string, } from 'yup';
 import Card from '../../../components/Card'
+
+
+
 const Signin = () => {
-  const [show, setShow] = React.useState(false)
-  const handleClick = () => setShow(!show)
+  const signinValidationSchema = object({
+    email: string().email('Email is invalid').required('Email is required'),
+    password: string().min(6, 'Password must be atleast of 6 characters')
+      .required('Password is required'),
+  })
+  
 
   return (
     <Container >
@@ -61,7 +61,10 @@ const Signin = () => {
                   </Field>
                   <HStack justifyContent='space-between'>
                     <Checkbox><Text fontSize='sm' >Remember me</Text></Checkbox>
-                    <Text cursor='pointer' fontSize='sm' fontWeight='medium' color='p.purple'>Forgot Password?</Text>
+                    <Link to='/forgot-password'>
+                      <Text cursor='pointer' fontSize='sm' fontWeight='medium' color='p.purple'>Forgot Password?</Text>
+                    </Link>
+                    
                 </HStack>
                 <Stack spacing={3}>
                   <Button type='submit'>Log In</Button>
