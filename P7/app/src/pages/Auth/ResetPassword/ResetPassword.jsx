@@ -1,17 +1,51 @@
 import React from 'react'
 import Card from '../../../components/Card'
-import { Button, Center, Container, FormControl, FormErrorMessage, FormLabel, Icon, Input, Stack, Text } from '@chakra-ui/react';
+import { Button, Center, Container, FormControl, FormErrorMessage, FormLabel, Icon, Input, Stack, Text, useToast } from '@chakra-ui/react';
 import { Formik, Form, Field } from 'formik';
 import { object, ref, string, } from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useMutation, useQuery } from 'react-query';
+import { verifyForgotToken } from '../../../api/query/userQuery';
+
+const resetPasswordValidationSchema = object({
+  password: string().min(6, 'Password must be atleast of 6 characters')
+  .required('Password is required'),
+  repeatPassword: string()
+  .oneOf([ref('password'), null], 'Password must match')
+.required('Repeat password is required')
+})
 
 const ResetPassword = () => {
-  const signinValidationSchema = object({
-    email: string().email('Email is invalid').required('Email is required'),
-    repeatPassword: string()
-    .oneOf([ref('password'), null], 'Password must match')
-  .required('Repeat password is required')
+
+  const toast = useToast();
+  const { token } = useParams();
+  const navigate = useNavigate();
+
+  const {  mutate, isLoading } = useMutation({
+ mutationKey: ['verify-forgot-token'],
+ mutationFn:verifyForgotToken,
+    enabled: !!token,
+    onError: (error) => {
+      toast({
+        title: "SignUp Error",
+        description: error.message,
+        status: 'error'
+      });
+      navigate('/signup');
+    },
+    onSettled: () => {
+      navigate:('/reset-success')
+    }
   })
+  
+
+  if (isLoading) {
+    return (
+      <Center h='100vh'>
+        <Spinner />
+      </Center>
+    )
+  }
   return (
     <Container>
       <Center minH='100vh'>
@@ -25,9 +59,9 @@ const ResetPassword = () => {
             }}
 
             onSubmit={(values) => {
-              console.log(values);
+              mutate({ password: values.password,token });
             }}
-            validationSchema={signinValidationSchema}
+            validationSchema={resetPasswordValidationSchema}
           >
             {()=>(
             <Form>

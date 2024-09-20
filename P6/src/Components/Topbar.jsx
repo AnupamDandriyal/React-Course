@@ -1,8 +1,10 @@
 import {FaUserTie} from 'react-icons/fa'
-import { Box, Container, Flex, Heading, Menu, MenuButton, MenuItem, MenuList, Button, HStack, Icon } from "@chakra-ui/react";
+import { Box, Heading, Menu, MenuButton, MenuItem, MenuList, HStack, Icon } from "@chakra-ui/react";
 import {FaBars} from 'react-icons/fa'
+import useAuth from '../../../P7/app/src/hooks/useAuth';
 
-const Topbar = ({title,onOpen}) => {
+const Topbar = ({ title, onOpen }) => {
+  const {logout } = useAuth();
   return (
     <Box px='4' color='Blueviolet' bg='white'>
       <HStack h='16' justifyContent={"space-between"} maxW='70rem' mx='auto'> 
@@ -17,11 +19,8 @@ const Topbar = ({title,onOpen}) => {
             <Icon as={FaUserTie} fontSize='24px'/>
           </MenuButton>
           <MenuList>
-            <MenuItem>Login / Sign-Up</MenuItem>
-            <MenuItem>Account Details</MenuItem>
-            <MenuItem>Plans</MenuItem>
-            <MenuItem>Reach Us</MenuItem>
-            <MenuItem>Register for Session</MenuItem>
+            <MenuItem onClick={logout}>Logout</MenuItem>
+            <MenuItem>Support</MenuItem>
           </MenuList>
         </Menu>
       </HStack>

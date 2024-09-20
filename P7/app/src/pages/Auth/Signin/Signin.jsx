@@ -1,14 +1,41 @@
 
-import {  Center, Container, FormControl, HStack, Input, Stack, Text, FormLabel, Button, Checkbox, FormErrorMessage } from '@chakra-ui/react'
+import {  Center, Container, FormControl, HStack, Input, Stack, Text, FormLabel, Button, Checkbox, FormErrorMessage, Box, useToast } from '@chakra-ui/react'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import { object, string, } from 'yup';
-import Card from '../../../components/Card'
+import Card from '../../../components/Card';
+import {useMutation} from 'react-query'
+import { signinUser } from '../../../api/query/userQuery';
+import useAuth from '../../../hooks/useAuth';
 
 
 
 const Signin = () => {
+  const toast = useToast();
+  const {login} = useAuth()
+  const { mutate, isLoading, } = useMutation(
+    {
+      mutationKey: ['signin'],
+      mutationFn: signinUser,
+      onSuccess: (data) => {
+        const { token } = data;
+        if (token) {
+          login(token)
+        }
+       },
+      onError: (error) => {
+        toast({
+          title: 'Signin Error',
+          description: error.message,
+          status:'error'
+        })
+      }
+    }
+  );
+
+
+
   const signinValidationSchema = object({
     email: string().email('Email is invalid').required('Email is required'),
     password: string().min(6, 'Password must be atleast of 6 characters')
@@ -29,7 +56,7 @@ const Signin = () => {
             }}
 
             onSubmit={(values) => {
-              console.log(values);
+              mutate(values);
             }}
             validationSchema={signinValidationSchema}
           >
@@ -67,7 +94,7 @@ const Signin = () => {
                     
                 </HStack>
                 <Stack spacing={3}>
-                  <Button type='submit'>Log In</Button>
+                  <Button isLoading={isLoading} type='submit'>Log In</Button>
                   <Button variant='outline'><Link to ='/signup'>Create New Account</Link></Button>
                </Stack>
                 

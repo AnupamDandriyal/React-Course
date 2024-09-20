@@ -1,9 +1,13 @@
-import { Center, Container, FormControl, HStack, Input, Stack, Text, FormLabel, InputGroup, InputRightElement, Button, Checkbox, Box, FormErrorMessage } from '@chakra-ui/react'
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Center, Container, FormControl, HStack, Input, Stack, Text, FormLabel, InputGroup, InputRightElement, Button, Checkbox, Box, FormErrorMessage, useToast } from '@chakra-ui/react'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
 import { object, string, ref} from 'yup';
 import Card from '../../../components/Card'
+import { useMutation } from 'react-query';
+import { signupUser } from '../../../api/query/userQuery';
+
+
 
 const signupValidationSchema = object({
   name: string().required("Name is required"),
@@ -18,8 +22,33 @@ const signupValidationSchema = object({
 
 
 const Signup = () => {
-  const [show, setShow] = React.useState(false)
-  const handleClick = () => setShow(!show)
+
+  const [email, setEmail] = useState('');
+  
+
+  const navigate = useNavigate();
+  const toast = useToast();
+  const { mutate, isLoading, } = useMutation(
+    {
+      mutationKey: ['signup'],
+      mutationFn: signupUser,
+      onSuccess: (data) => { 
+        if (email) {
+          navigate(`/register-email-verify/${email}`);
+        }
+      
+      },
+      onError: (error) => {
+        toast({
+          title: 'Signup Error',
+          description: error.message,
+          status:'error'
+        })
+      }
+    }
+  );
+
+  console.log(email)
 
   return (
     <Container>
@@ -37,7 +66,14 @@ const Signup = () => {
             }}
 
             onSubmit={(values) => {
-              console.log(values);
+              setEmail(values.email);
+              mutate({
+                firstName: values.name,
+                lastName: values.surname,
+                email: values.email,
+                password:values.password,
+              });
+              
             }}
             validationSchema={signupValidationSchema}
           >
@@ -106,7 +142,7 @@ const Signup = () => {
                       )}
                   </Field>
                 <Checkbox><Text fontSize='sm' >I agree with <Box cursor='pointer' as='span' color='p.purple' fontWeight='medium' >Terms and Conditions</Box></Text></Checkbox>
-                <Button type='submit' colorScheme='gray'>Create Account</Button>
+                <Button isLoading={isLoading} type='submit' colorScheme='gray'>Create Account</Button>
                 <Text fontSize='sm' alignSelf='center'>Already have an account? <Link cursor='pointer' to='/signin'><Text color='p.purple' as='span' fontWeight='medium' >Log in</Text></Link></Text>
               </Stack>
             </Form>

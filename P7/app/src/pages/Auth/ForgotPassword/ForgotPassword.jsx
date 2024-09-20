@@ -1,15 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from '../../../components/Card'
-import { Button, Center, Container, FormControl, FormErrorMessage, FormLabel, Icon, Input, Stack, Text } from '@chakra-ui/react';
+import { Button, Center, Container, FormControl, FormErrorMessage, FormLabel, Icon, Input, Stack, Text, useToast } from '@chakra-ui/react';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Formik, Form, Field } from 'formik';
 import { object, string, } from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useMutation } from 'react-query';
+import { sendForgotMail } from '../../../api/query/userQuery';
 
 const ForgotPassword = () => {
-  const signinValidationSchema = object({
+  const forgotPasswordValidationSchema = object({
     email: string().email('Email is invalid').required('Email is required'),
-  })
+  });
+
+  const params = useParams();
+
+  const [email, setEmail] = useState('');
+
+  const toast = useToast();
+  const navigate = useNavigate();
+
+  const {mutate,isLoading,isSuccess } = useMutation(
+    {
+     mutationKey: ['forgot-mail'],
+     mutationFn: sendForgotMail,
+      onSettled: (data) => { 
+        console.log(data);
+        navigate(`/forgot-password-sent/${email}`)
+      },
+      onError: (error) => {
+        toast({
+          title: 'Forgot Error',
+          description: error.message,
+          status:'error'
+        })
+      },
+    });
+
+
+
+
+
   return (
     <Container>
       <Center minH='100vh'>
@@ -26,9 +57,10 @@ const ForgotPassword = () => {
             }}
 
             onSubmit={(values) => {
-              console.log(values);
+              mutate({ email: values.email });
+              setEmail((prev) => { prev = values.email })
             }}
-            validationSchema={signinValidationSchema}
+            validationSchema={forgotPasswordValidationSchema}
           >
             {()=>(
             <Form>
