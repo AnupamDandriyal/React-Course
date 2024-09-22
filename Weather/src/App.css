@@ -20,13 +20,15 @@
   transform: translate(-50%, -50%);
   text-align: center;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
  
 .container_date
 {
   color: white;
   margin-top:76px;
-  opacity: 47%;
+  opacity: 70%;
   font-size: 22px;
   font-weight: 400;
 }
@@ -48,39 +50,46 @@
   font-size: 50px;
   font-weight: 800;
   color: white;
-  top: -20px;
+  margin-bottom: 10px;
 }
 .degree_icon
 {
   font-size: 20px;
   color:white;
+  font-weight: 550;
+  position: absolute;
+  right:37%;
+  top:5px;
 }
  
  
 .container_img
 {
-  position: relative;
-  top: -29px;
+  width:70%;
+  align-self: center;
 }
  
+.status{
+  color:White;
+}
 
-.country_per
-{
-  position: relative;
-  top: -15px;
-  color: white;
-  font-size: 18px;
+form{
+  display: flex;
+  margin:0 auto;
 }
  
 .input {
   border: none;
   padding: 1rem;
-  border-radius: 0px 0px 0px 15px;
+  /* border-radius: 15px; */
   background: #e8e8e8;
   /* box-shadow: 20px 20px 60px #c5c5c5, -20px -20px 60px #ffffff; */
   transition: 0.3s;
-  position: relative;
-  top: -2px;
+  border-top-left-radius: 15px ;
+  border-bottom-left-radius:15px ;
+ /*  height:40px; */
+ /*  position: relative;
+  top: -2px; */
  }
   
  .input:focus {
@@ -101,8 +110,12 @@
     /* border-radius: 0.5em; */
     /* background: #e8e8e8; */
     cursor: pointer;
-    border: 1px solid #e8e8e8;
+    border:none;
     transition: all 0.3s;
+    background-image: linear-gradient(to right, skyblue,lightgreen);
+    color:blue;
+    border-top-right-radius: 15px ;
+    border-bottom-right-radius:15px ;
 }
  
 button:active {
