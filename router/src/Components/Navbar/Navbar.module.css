@@ -1,0 +1,50 @@
+.navbar{
+  width:100vw;
+  height:60px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left{
+  height:100%;
+  padding-left: 70px;
+  display: flex;
+  align-items: center;
+}
+.left img{
+  width:8%;
+  margin-right:50px ;
+}
+
+.left ul li{
+  display: inline-block;
+  margin-right: 50px;  
+}
+
+.left li .navlink{
+  text-decoration: none;
+  color:orangered;
+  font-weight: 550;
+  font-size: 18px;
+}
+
+.right{
+  padding-right: 70px;
+}
+
+.right button{
+  color:White;
+  background-color: rgb(51, 145, 252);
+  outline: none;
+  border:none;
+  border-radius: 10px;
+  padding: 8px 15px;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.active{
+  color:blue !important
+}

@@ -1,0 +1,14 @@
+.container{
+  width:50%;
+  margin:0 auto;
+  margin-top: 20px;
+}
+
+.container h1{
+  margin-bottom: 15px;
+  color:blue
+}
+
+.container p{
+  color:blue;
+}

@@ -1,0 +1,37 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  width:60%;
+  margin:0 auto;
+  margin-top:30px;
+  align-items: center;
+  text-align: center;
+
+}
+
+.container img{
+  width:40%;
+  margin-bottom: 15px;
+}
+
+
+.btns{
+  display: flex;
+  gap:20px;
+  margin-top: 20px;
+}
+
+.btns button{
+  width:150px;
+  height:40px;
+  font-weight: 550;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.bluebtn{
+  color:white;
+  background-color: rgb(60, 121, 253);
+}
