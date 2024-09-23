@@ -1,7 +1,7 @@
 .logo-box {
   background: #fff;
   padding: 30px 120px;
-  width:15%;
+  width:18%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -33,7 +33,7 @@
   border-radius: 30px;
   background: transparent;
   border: 1px solid #999;
-  font-weight: 500;
+  font-weight: 550;
   cursor: pointer;
 }
  
@@ -53,7 +53,7 @@
   margin-top: -16px;
 }
 .logo-box input {
-  width: 100%;
+  width: 90%;
   background: transparent;
   border: 1px solid #999;
   outline: 0;
@@ -65,7 +65,7 @@
   color: #333;
 }
  
-.logo-box form button {
+.logo-box form .next {
   background: #000;
   color: #fff;
   border: 0;
@@ -79,8 +79,26 @@
   margin: 40px 0 50px;
 }
  
-.login-box p a {
+.logo-box p a {
   text-decoration: none;
   color: #359cf0;
-  margin-left: 100px;
+  font-weight: 550;
+}
+
+
+.ordiv{
+  height: 2px;
+  background-color: #ecebeb;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.or{
+  position: absolute;
+  background: white;
+  left:50%;
+  top:-11px;
+  width:35px;
+  transform: translateX(-50%);
 }
