@@ -1,0 +1,103 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+  
+.container {
+  background-color: #FAF9FA;
+  border-radius: 8px;
+  padding: 3rem;
+  margin-top: 6rem;
+  background-color: orangered;
+}
+
+.total_amount_card{
+  background-image: linear-gradient(to right, rgb(248, 103, 125),orange);
+  color:White;
+  width:350px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 400px;
+  border-radius: 27px;
+}
+
+.heading_text
+{
+  font-size: 15px !important;
+  font-weight: 400;
+}
+.heading_two
+{
+  padding-top: 5px;
+}
+
+ 
+.right
+{
+  float: right;
+  margin-top: -2rem;
+  color:rgb(255, 253, 253);
+}
+
+.rotate{
+  animation: rotate 0.8s linear;
+}
+
+@keyframes rotate {
+  100%{
+    transform:  rotate(360deg);
+  }
+}
+
+.total_amount_heading {
+  font-size: 60px;
+  font-weight: 800;
+}
+.total_amount_para {
+  text-align: center;
+  font-size: 18px !important;
+  padding-top: 5px;
+  color: #4B4B4B;
+}
+.input_area
+{
+  margin-top: 40px;
+}
+  
+.input_field
+{
+  margin-top: 30px;
+  width: 445px;
+}
+#outlined-basic {
+  width: 410px;
+}
+  
+.button_collection
+{
+  margin-top: 61px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.btn_one {
+  background-color: #F2F2F2 !important;
+  width: 180px;
+  height: 75px;
+  color: orangered !important;
+  font-weight: 600;
+  font-size: 30px !important;
+  
+}
+ 
+.btn_two {
+  background-color: #F2F2F2 !important;
+  width: 180px;
+  height: 75px;
+  color: orangered !important;
+  font-size: 30px !important;
+  
+}
