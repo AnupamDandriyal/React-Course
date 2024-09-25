@@ -1,0 +1,59 @@
+*{
+  padding:0;
+  margin:0;
+}
+
+body{
+  height:100vh;
+  width:100vw;
+  background-color: rgb(208, 220, 225);
+}
+
+.datafield{
+  display: flex;
+  width:100%;
+  justify-content: space-between;
+  margin-top:20px;
+  height: 200px;
+}
+
+.right{
+  display: flex;
+  background-color: rgb(189, 220, 233);
+  flex-basis: 45%;
+  border-radius: 10px;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.right h1{
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+}
+
+.left{
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  flex-basis:45%;
+}
+
+.left h2{
+  margin-bottom: 20px;
+}
+
+.left input{
+  height:25px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.left .btns{
+  display: flex;
+  gap:20px;
+  cursor: pointer;
+}
