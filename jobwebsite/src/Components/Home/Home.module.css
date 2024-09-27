@@ -1,0 +1,47 @@
+.home{
+  background-color: rgb(231, 238, 231);
+  height: 92.3vh;
+}
+
+.container{
+  width:40%;
+  margin:0 auto;
+  text-align: center;
+  padding: 50px;
+}
+
+h1{
+  font-size: 55px;
+  font-weight: 530;
+  line-height: 55px;
+  margin:20px 0;
+}
+
+h1 span{
+  color:rgb(6, 171, 6);
+}
+
+.entry{
+  display: flex;
+  height:45px;
+  width:80%;
+  margin: 0 auto;
+  background-color: #fff;
+  margin-top: 80px;
+  border-radius: 10px;
+}
+
+.entry input{
+  width:70.9%;
+  border:none;
+  outline: none;
+  padding-left: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+
+.darkbtn{
+  color:white;
+  background-color: black !important;
+}
