@@ -1,11 +1,16 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import styles from './AddTodo.module.css';
 import PropTypes from 'prop-types'
 import {MdOutlineNoteAdd } from 'react-icons/md'
+import { TodoItemContext } from '../store/todo-items-store';
 
-const AddTodo = ({ todoItems ,setTodoItems }) => {
+const AddTodo = () => {
   const todoName= useRef();
   const todoDate = useRef();
+
+  const contextObj = useContext(TodoItemContext)
+  const todoItems = contextObj.todoItems;
+  const setTodoItems = contextObj.setTodoItems;
   const add = () => {
     let newItem;
     

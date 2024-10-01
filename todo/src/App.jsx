@@ -3,6 +3,7 @@ import "./App.css";
 import AddTodo from "./Components/AddTodo";
 import Name from "./Components/Name";
 import TodoItems from "./Components/TodoItems";
+import { TodoItemContext } from "./store/todo-items-store";
 
 function App() {
   const [todoItems, setTodoItems] = useState([
@@ -20,15 +21,17 @@ function App() {
     },
   ]);
   return (
-    <center className="container">
-      <Name/>
-      <div className="container text-center">
-        <div className="addTodo">
-          <AddTodo todoItems={todoItems} setTodoItems={setTodoItems} />
+    <TodoItemContext.Provider value={{ todoItems:todoItems,setTodoItems:setTodoItems }}>
+      <center className="container">
+        <Name/>
+        <div className="container text-center">
+          <div className="addTodo">
+            <AddTodo />
+          </div>
+          <TodoItems />      
         </div>
-        <TodoItems todoItems={todoItems} setTodoItems={setTodoItems} />      
-      </div>
-    </center>
+      </center>
+    </TodoItemContext.Provider>
   );
 }
 

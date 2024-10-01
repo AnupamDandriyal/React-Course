@@ -1,12 +1,17 @@
+import { useContext } from "react";
 import Todo from "./Todo";
 import PropTypes from 'prop-types';
+import { TodoItemContext } from "../store/todo-items-store";
 
-const TodoItems = ({ todoItems,setTodoItems }) => {
+const TodoItems = () => {
+  const contextObj = useContext(TodoItemContext)
+  const todoItems = contextObj.todoItems;
+  const setTodoItems = contextObj.setTodoItems;
   return (
     <>
       {
         todoItems.map((item,i) => (
-          <Todo key={i} msg={item.name} date={item.date} todoItems={todoItems} setTodoItems={setTodoItems}/>
+          <Todo key={i} msg={item.name} date={item.date} setTodoItems={setTodoItems}/>
         ))
       }
 
