@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
 const Todo = ({ msg, date,todoItems ,setTodoItems }) => {
-  const deleteTodo = (msg) => {
-    const updateTodo = todoItems.filter(item => item.name !== msg);
+  const deleteTodo = (date,msg) => {
+    const updateTodo = todoItems.filter(item =>item.name!==msg ||item.date !== date);
     setTodoItems(updateTodo);
   }
   return (
@@ -14,7 +14,7 @@ const Todo = ({ msg, date,todoItems ,setTodoItems }) => {
         <p>{date}</p>
           </div>
           <div className="col-2">
-            <button onClick={()=>deleteTodo(msg)} type="button" className="btn btn-danger">
+            <button onClick={()=>deleteTodo(date,msg)} type="button" className="btn btn-danger">
               Delete
             </button>
           </div>
