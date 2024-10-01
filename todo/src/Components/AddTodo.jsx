@@ -9,7 +9,7 @@ const AddTodo = ({ todoItems ,setTodoItems }) => {
   const add = () => {
     let newItem;
     
-    if (todoName === '' || todoDate === '') {
+    if (todoName.current.value === '' || todoDate.current.value === '') {
       alert('Please Provide the Name or Date!');
     }
     else {
@@ -17,9 +17,13 @@ const AddTodo = ({ todoItems ,setTodoItems }) => {
       const date = todoDate.current.value;
       newItem = { name, date };
     const isDuplicate = todoItems.some(item => item.name === newItem.name && item.date === newItem.date);
-    if (!isDuplicate) {
-      setTodoItems([...todoItems, newItem]);
-    }
+      if (!isDuplicate) {
+       /*  let newTodoItems = [...todoItems, newItem];
+        setTodoItems(newTodoItems);  */
+        setTodoItems((prev) => [
+          ...prev,newItem
+        ])
+      }
     else {
       alert('Already Exists');
     }
