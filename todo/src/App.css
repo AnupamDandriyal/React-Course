@@ -11,9 +11,6 @@
   gap:10px;
 }
 
-
-
-
 button{
   width:90px
 }
@@ -21,4 +18,9 @@ button{
 p{
   text-align: left;
   padding-left: 10px;
+}
+
+
+.addTodo{
+  margin-bottom: 15px !important;
 }

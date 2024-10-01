@@ -23,7 +23,9 @@ function App() {
     <center className="container">
       <Name/>
       <div className="container text-center">
-        <AddTodo todoItems={todoItems} setTodoItems={setTodoItems} />
+        <div className="addTodo">
+          <AddTodo todoItems={todoItems} setTodoItems={setTodoItems} />
+        </div>
         <TodoItems todoItems={todoItems} setTodoItems={setTodoItems} />      
       </div>
     </center>

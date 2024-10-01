@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import {MdDelete } from 'react-icons/md'
 
 const Todo = ({ msg, date,todoItems ,setTodoItems }) => {
   const deleteTodo = (date,msg) => {
@@ -15,7 +16,7 @@ const Todo = ({ msg, date,todoItems ,setTodoItems }) => {
           </div>
           <div className="col-2">
             <button onClick={()=>deleteTodo(date,msg)} type="button" className="btn btn-danger">
-              Delete
+            <MdDelete />
             </button>
           </div>
         </div>
