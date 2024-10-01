@@ -5,8 +5,8 @@ const TodoItems = ({ todoItems,setTodoItems }) => {
   return (
     <>
       {
-        todoItems.map((item) => (
-          <Todo key={item.name} msg={item.name} date={item.date} todoItems={todoItems} setTodoItems={setTodoItems}/>
+        todoItems.map((item,i) => (
+          <Todo key={i} msg={item.name} date={item.date} todoItems={todoItems} setTodoItems={setTodoItems}/>
         ))
       }
 
