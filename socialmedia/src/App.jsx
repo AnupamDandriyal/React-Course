@@ -1,28 +1,33 @@
 
+import { useState } from 'react'
 import './App.css'
 import CreatePost from './components/CreatePost'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import PostList from './components/PostList'
 import Sidebar from './components/Sidebar'
+import PostListProvider from './store/post-list-store'
+
 
 function App() {
 
+  const [selectedTab,setSelectedTab] = useState('Home')
 
   return (
-    <div className="app-container">
-      <div className="left">
-        <Sidebar />
-      </div>
-      <div className="right">
-        <Header />
-        <div className="content">
-          <CreatePost />
-          <PostList />
+    <PostListProvider>
+      <div className="app-container">
+        <div className="left">
+          <Sidebar selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
         </div>
-        <Footer />
-      </div>    
-    </div>    
+        <div className="right">
+          <Header />
+          <div className="content">
+            {selectedTab==='Home' ? <PostList /> :<CreatePost />}
+          </div>
+          <Footer />
+        </div>    
+      </div> 
+    </PostListProvider>  
   )
 }
 
