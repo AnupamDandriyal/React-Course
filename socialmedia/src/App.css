@@ -35,3 +35,22 @@
   font-size: 16px !important;
   cursor: pointer;
 }
+
+.create-post{
+  width:40%;
+  margin: 0 auto;
+  padding: 50px 25px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+label{
+  font-weight: 550;
+  color:rgb(29, 125, 252)
+}
+
+
+.createBtn{
+  font-weight: 550 !important;
+  font-size: 18px !important;
+}
