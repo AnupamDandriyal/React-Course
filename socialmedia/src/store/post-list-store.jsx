@@ -4,7 +4,7 @@ import { createContext, useReducer } from "react";
 
 export const PostList = createContext({
   postList: [],
-  addPost: () => { },
+  addPost: () => {},
   deletePost:()=>{},
 });
 const PostListProvider = ({ children }) => {
@@ -14,12 +14,27 @@ const PostListProvider = ({ children }) => {
     if (action.type === 'DELETE_POST') {
       newPostList=currPostList.filter(post=>post.id !==action.payload.postID)
     }
+    else if (action.type === 'ADD_POST') {
+      newPostList = [action.payload, ...currPostList];
+    }
     return newPostList;
 }
 const [postList, dispatchPostList] = useReducer(postListReducer,DEFAULT_POST_LIST);
 
-const addPost = () => {
-  
+const addPost = (userID,title,description,tags,reactions) => {
+
+  dispatchPostList({
+    type: "ADD_POST",
+    payload:
+    {
+      id: Date.now(),
+      title: title,
+      description: description,
+      reactions: reactions,
+      userID: userID,
+      tags:tags,
+      }
+  })
 }
 
 
@@ -44,16 +59,16 @@ const DEFAULT_POST_LIST = [
   {
   id: '1',
   title: 'Going to mountains',
-  body: 'Hi Friends, I am going to mountain trip for my vacations. Hope to enjoy a lot. Peace out!',
-  reactions: 0,
+  description: 'Hi Friends, I am going to mountain trip for my vacations. Hope to enjoy a lot. Peace out!',
+  reactions: 84,
   userID: 'user-4',
   tags: ['vacations','mountains','selflove','rejuvanate','relax','peace']
   },
   {
     id: '2',
     title: 'Happy Birthday to me',
-    body: 'Hi Friends, Todya i turned 22 and so i seek blessings of your all. Sending love and hugs, Peace out!',
-    reactions: 5,
+    description: 'Hi Friends, Todya i turned 22 and so i seek blessings of your all. Sending love and hugs, Peace out!',
+    reactions: 45,
     userID: 'user-1',
     tags: ['birthday','newbeginning','growth','goodluck','wishes']
   }
