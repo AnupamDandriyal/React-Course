@@ -1,10 +1,22 @@
-
+import {useState ,useEffect} from 'react'
 
 const Time = () => {
-  const date = new Date();
-  /* console.log(date.getUTCHours()) */
+  const [date, setDate] = useState(new Date());
+  useEffect(() => {
+    const intervalId = setTimeout(() => {
+      setDate(new Date())
+    }, 1000);
+    return () => {
+      clearTimeout(intervalId)
+    }
+  })
+  
   return (
-    <p>This is the curremt time :{date.getDate()}/{date.getMonth()}/{date.getFullYear()} -{date.getHours()}:{date.getMinutes()}:{date.getSeconds()} </p>
+    <p>This is the curremt time :
+      <span style={{fontWeight:'550'}}>
+        {date.toLocaleDateString()} - {date.toLocaleTimeString()}
+      </span>
+    </p>
   )
 }
 
