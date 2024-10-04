@@ -5,8 +5,10 @@ import { createContext, useReducer } from "react";
 export const PostList = createContext({
   postList: [],
   addPost: () => {},
-  deletePost:()=>{},
+  deletePost: () => { },
+  addInitialPosts:()=>{}
 });
+
 const PostListProvider = ({ children }) => {
 
   const postListReducer = (currPostList, action) => {
@@ -17,12 +19,14 @@ const PostListProvider = ({ children }) => {
     else if (action.type === 'ADD_POST') {
       newPostList = [action.payload, ...currPostList];
     }
+    else if (action.type === 'ADD_INITIAL_POSTS') {
+      newPostList = action.payload.posts
+    }
     return newPostList;
 }
-const [postList, dispatchPostList] = useReducer(postListReducer,DEFAULT_POST_LIST);
+const [postList, dispatchPostList] = useReducer(postListReducer,[]);
 
 const addPost = (userID,title,description,tags,reactions) => {
-
   dispatchPostList({
     type: "ADD_POST",
     payload:
@@ -35,7 +39,16 @@ const addPost = (userID,title,description,tags,reactions) => {
       tags:tags,
       }
   })
-}
+  }
+  
+
+  const addInitialPosts = (posts) => {
+    dispatchPostList({
+      type: "ADD_INITIAL_POSTS",
+      payload: { posts },
+    })
+  }
+  
 
 
 const deletePost = (postID) => {
@@ -47,32 +60,15 @@ const deletePost = (postID) => {
 }
 
 return <PostList.Provider value={{
-  postList,
+    postList,
     addPost,
     deletePost,
+    addInitialPosts
   }}>
     {children}
   </PostList.Provider>
 }
 
-const DEFAULT_POST_LIST = [
-  {
-  id: '1',
-  title: 'Going to mountains',
-  description: 'Hi Friends, I am going to mountain trip for my vacations. Hope to enjoy a lot. Peace out!',
-  reactions: 84,
-  userID: 'user-4',
-  tags: ['vacations','mountains','selflove','rejuvanate','relax','peace']
-  },
-  {
-    id: '2',
-    title: 'Happy Birthday to me',
-    description: 'Hi Friends, Todya i turned 22 and so i seek blessings of your all. Sending love and hugs, Peace out!',
-    reactions: 45,
-    userID: 'user-1',
-    tags: ['birthday','newbeginning','growth','goodluck','wishes']
-  }
-];
 
 
 
@@ -82,5 +78,16 @@ PostListProvider.propTypes = {
 };
 
 export default PostListProvider;
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -6,7 +6,7 @@ import { PostList } from "../store/post-list-store";
 const CreatePost = () => {
   const userIDEl = useRef();
   const titleEl = useRef();
-  const descriptionEl = useRef();
+  const bodyEl = useRef();
   const tagsEl = useRef();
   const reactionsEl = useRef();
 
@@ -16,14 +16,14 @@ const CreatePost = () => {
     e.preventDefault();
     const userID = userIDEl.current.value;
     const title = titleEl.current.value;
-    const description = descriptionEl.current.value;
+    const body = bodyEl.current.value;
     const tags = tagsEl.current.value.split(/\s+/);
     const reactions = reactionsEl.current.value;
-    addPost(userID, title, description, tags, reactions);
+    addPost(userID, title, body, tags, reactions);
 
     userIDEl.current.value = '';
     titleEl.current.value = '';
-    descriptionEl.current.value = '';
+    bodyEl.current.value = '';
     tagsEl.current.value = '';
     reactionsEl.current.value = '';
   }
@@ -48,8 +48,8 @@ const CreatePost = () => {
       
 
         <div className="mb-3">
-          <label htmlFor="description" className="form-label">About Your Post</label>
-          <textarea ref={descriptionEl} style={{ overflowY: 'auto', resize: 'vertical' }}  rows={2} type="text" className="form-control" id="description" aria-describedby="description" placeholder="Add caption of your post..."/>
+          <label htmlFor="body" className="form-label">About Your Post</label>
+          <textarea ref={bodyEl} style={{ overflowY: 'auto', resize: 'vertical' }}  rows={2} type="text" className="form-control" id="body" aria-describedby="body" placeholder="Add caption of your post..."/>
         </div>
 
 
