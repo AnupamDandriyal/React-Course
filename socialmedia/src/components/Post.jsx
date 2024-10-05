@@ -9,7 +9,7 @@ const Post = ({ post }) => {
   const {deletePost} = useContext(PostListData)
   return (
     <>
-      <div className="card" style={{ width: '50%',margin:'0 auto',marginBottom:'45px'}}>
+      <div className="card" style={{ width: '40%',margin:'25px auto'}}>
         <div className="card-body">
           <span onClick={()=>deletePost(post.id)} className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger delete">
           <MdDelete />
@@ -23,7 +23,7 @@ const Post = ({ post }) => {
           }
           <br />
           <div className="alert alert-primary reactions" role="alert">
-            <AiFillLike/> {post.reactions.likes}
+            <AiFillLike/> {post.reactions.likes || post.reactions}
           </div>
           
         </div>
