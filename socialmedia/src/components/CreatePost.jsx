@@ -14,19 +14,48 @@ const CreatePost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('post button clicked')
     const userID = userIDEl.current.value;
     const title = titleEl.current.value;
     const body = bodyEl.current.value;
     const tags = tagsEl.current.value.split(/\s+/);
     const reactions = reactionsEl.current.value;
-    addPost(userID, title, body, tags, reactions);
 
     userIDEl.current.value = '';
     titleEl.current.value = '';
     bodyEl.current.value = '';
     tagsEl.current.value = '';
     reactionsEl.current.value = '';
+    
+
+    fetch('https://dummyjson.com/posts/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: title,
+        body: body,
+        reactions: reactions,
+        userId: userID,
+        tags: tags,
+      }),
+    })
+      .then(res => res.json())
+      .then((post)=>addPost(post))
   }
+
+
+/*   fetch('https://dummyjson.com/posts/add', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title: 'title',
+      body: 'body',
+      tags: 'tags',
+      userId : 45,
+    }),
+  })
+    .then(res => res.json())
+    .then(console.log) */
 
 
 

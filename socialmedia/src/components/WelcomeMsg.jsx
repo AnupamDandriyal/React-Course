@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+
 const WelcomeMsg = () => {
   return (
     <div className="welcome">
@@ -9,7 +9,5 @@ const WelcomeMsg = () => {
 }
 
 
-WelcomeMsg.propTypes = {
-  onGetPostsClick:PropTypes.func.isRequired
-}
+
 export default WelcomeMsg

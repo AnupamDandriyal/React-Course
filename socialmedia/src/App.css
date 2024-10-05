@@ -19,6 +19,7 @@
 
 .content{
   padding: 15px;
+  overflow-y: auto;
 }
 
 .reactions{
@@ -65,3 +66,6 @@ label{
   margin:0 auto;
 }
 
+.color{
+  color:#f3f2f2
+}

@@ -26,18 +26,12 @@ const PostListProvider = ({ children }) => {
 }
 const [postList, dispatchPostList] = useReducer(postListReducer,[]);
 
-const addPost = (userID,title,description,tags,reactions) => {
+  const addPost = (post) => {
+  console.log(`Recieved from server ${post}`)
   dispatchPostList({
     type: "ADD_POST",
     payload:
-    {
-      id: Date.now(),
-      title: title,
-      description: description,
-      reactions: reactions,
-      userID: userID,
-      tags:tags,
-      }
+    {post}
   })
   }
   

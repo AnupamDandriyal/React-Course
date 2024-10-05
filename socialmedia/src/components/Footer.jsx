@@ -2,8 +2,8 @@
 const Footer = () => {
   return (
     <>
-      <footer className="py-3 my-4">
-    <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+      <footer className="py-1 mt-3" style={{backgroundColor:'#f3f2f2'}}>
+    <ul className="nav justify-content-center border-bottom pb-1 mb-1">
       <li className="nav-item"><a href="#" className="nav-link px-2 text-body-secondary">Home</a></li>
       <li className="nav-item"><a href="#" className="nav-link px-2 text-body-secondary">Features</a></li>
       <li className="nav-item"><a href="#" className="nav-link px-2 text-body-secondary">Pricing</a></li>
