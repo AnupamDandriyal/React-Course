@@ -1,9 +1,8 @@
-import PropTypes from 'prop-types'
+import { Link } from "react-router-dom"
 
-const Sidebar = ({ selectedTab, setSelectedTab }) => {
-  const handleClick = (tab)=>{
-    setSelectedTab(tab);
-  }
+
+const Sidebar = () => {
+ 
   return (
     <>
       <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style={{ width: '230px' }}>
@@ -14,16 +13,18 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
         <hr/>
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item">
-            <a href="#" onClick={()=>handleClick('Home')} className={`nav-link text-white ${selectedTab==='Home' && `active`}` } aria-current="page">
+            <Link to="/"
+              className="nav-link text-white" aria-current="page">
               <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#home"></use></svg>
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={()=>handleClick('Create')} className={`nav-link text-white ${selectedTab==='Create' && `active`} `}>
+            <Link to="/create-post"
+              className="nav-link text-white">
               <svg className="bi pe-none me-2" width="16" height="16"><use xlinkHref="#speedometer2"></use></svg>
               Create Post
-            </a>
+            </Link>
           </li>
         </ul>
         <hr />
@@ -45,9 +46,5 @@ const Sidebar = ({ selectedTab, setSelectedTab }) => {
   )
 }
 
-Sidebar.propTypes = {
-  selectedTab: PropTypes.string.isRequired,
-  setSelectedTab:PropTypes.func.isRequired,
-};
 
 export default Sidebar
