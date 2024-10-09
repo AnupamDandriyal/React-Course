@@ -2,8 +2,10 @@ import { FcBusinessman } from "react-icons/fc";
 import { FcLike } from "react-icons/fc";
 import { FcPaid } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import {useSelector} from 'react-redux'
 
 const Header = () => {
+const bag =   useSelector(store => store.bag)
   return (
     <>
       <header>
@@ -27,7 +29,7 @@ const Header = () => {
           </a>
         </nav>
         <div className="search_bar">
-          <span className="material-symbols-outlined search_icon">search</span>
+          <span className="material-symbols-outlined search_icon">🔍</span>
           <input
             className="search_input"
             placeholder="Search for products, brands and more"
@@ -35,19 +37,19 @@ const Header = () => {
         </div>
         <div className="action_bar">
           <div className="action_container">
-            <FcBusinessman style={{ fontSize: "25px" }} />
-            <span className="action_name">Profile</span>
+            <FcBusinessman style={{ fontSize: "30px" }} />
+            <span  className="action_name">Profile</span>
           </div>
 
           <div className="action_container">
-            <FcLike style={{ fontSize: "25px" }} />
+            <FcLike style={{ fontSize: "30px" }} />
             <span className="action_name">Wishlist</span>
           </div>
 
           <Link to="/bag" className="action_container">
-            <FcPaid style={{ fontSize: "25px" }} />
-            <span className="action_name">Bag</span>
-            <span className="bag-item-count">0</span>
+            <FcPaid style={{ fontSize: "30px" }} />
+            <span  style={{color:'black'}} className="action_name">Bag</span>
+            <span className="bag-item-count">{bag.length}</span>
           </Link>
         </div>
       </header>

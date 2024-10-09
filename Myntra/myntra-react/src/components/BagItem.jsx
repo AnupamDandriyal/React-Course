@@ -1,6 +1,12 @@
 import PropTypes from "prop-types";
+import { useDispatch} from "react-redux";
+import { bagActions } from "../store/BagSlice";
 
 const BagItem = ({ item }) => {
+  const dispatch = useDispatch();
+  const handleRemoveFromBag = () => {
+    dispatch(bagActions.removeFromBag(item.id))
+  };
   return (
     <div className="bag-item-container">
       <div className="item-left-part">
@@ -22,10 +28,10 @@ const BagItem = ({ item }) => {
         </div>
         <div className="delivery-details">
           Delivery by : &nbsp;
-          <span className="delivery-details-days">{item.delivery_date}</span>
+          <span style={{fontWeight:'550'}} className="delivery-details-days">{item.delivery_date}</span>
         </div>
       </div>
-    <div className="remove-from-cart" onClick={()=>alert('Item removed from cart')}>X</div> 
+    <div style={{fontSize:'15px'}} className="remove-from-cart" onClick={handleRemoveFromBag}>❌</div> 
     </div>
   );
 };
