@@ -60,7 +60,7 @@ button{
 .homeContainer{
   width:100%;
   margin:0 auto;
-  min-height: 100vh;
+  min-height: 91.8vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -98,7 +98,7 @@ button{
   font-weight: 450 !important;
 }
 
-.hero .primaryBtn{
+.hero .primaryBtn,.about .primaryBtn{
   border:2px solid rgb(254, 168, 56);
   padding:12px 25px;
   border-radius: 25px;
@@ -108,10 +108,46 @@ button{
   font-size: 20px;
 }
 
+.about .btn{
+  border:none;
+  padding:12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  background: rgb(254, 168, 56);
+  color:white;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.hero .primaryBtn:hover,.about .primaryBtn:hover{
+  background-color:  rgb(254, 168, 56);
+  color:white
+}
+
+.about {
+  background-color: black;
+  width:100%;
+  height:91.8vh;
+  display: flex;
+  align-items: center;
+}
+.about p{
+  color:White;
+}
+.flex{
+  display: flex;
+  width:80%;
+  margin: 0 auto;
+  gap:25px
+}
 
 
-
-
+.flex .right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:20px
+}
 
 
 

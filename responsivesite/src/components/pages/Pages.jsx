@@ -1,19 +1,17 @@
-import {
-  BrowserRouter,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../common/Header";
 import Home from "../home/Home";
+import About from "./About";
 
 const Pages = () => {
   return (
     <>
       <BrowserRouter>
         <Header />
-        <Switch>
-           <Route exact path="/" element={Home}/>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </BrowserRouter>
     </>
   );
