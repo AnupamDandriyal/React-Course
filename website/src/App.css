@@ -410,14 +410,33 @@ a{
   height:100vh;
 }
 
+.portfolio h1{
+  text-align: center;
+  font-size: 45px;
+  color:orange
+}
+
 .portfolio .container{
   width:80%;
   margin:0 auto;
   padding: 150px 0;
   display: flex;
   justify-content: space-around;
+  gap:35px;
+  flex-direction: column;
 }
 
+.portfolio .filterBtns{
+  align-self: center;
+}
+
+.portfolio .filterBtns button{
+  margin-right: 25px;
+  border:2px solid orange;
+  background: white;
+  color:orange;
+  text-transform: capitalize;
+}
 .portfolio .grid3{
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -430,9 +449,12 @@ a{
 }
 
 .portfolio img{
-  height:300px;
+  width:400px;
 }
 
+.portfolio .box:hover{
+  transform: scale(1);
+}
 .overlay{
   position: absolute;
   top:0;
@@ -456,7 +478,7 @@ a{
   top:0;
   left:0;
   width:100%;
-  height: 100%;
+  height: 99%;
   opacity: 0;
   background-color: orange;
   z-index: -1;
