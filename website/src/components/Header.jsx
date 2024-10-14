@@ -2,6 +2,7 @@
 import {navlink} from './data/dummydata'
 import { useState } from "react";
 import MenuSharpIcon from '@mui/icons-material/MenuSharp';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -9,14 +10,10 @@ const Header = () => {
   return (
     <header>
       <div className="header flex-sb">
-       {/*  <Link to='/' className="logo">
-          🤖
-        </Link> */}
-        <a  className='logo' href="/"> 🤖</a>
+        <Link  className='logo' to="/"> 🤖</Link>
         <div className={responsive ? 'hideMenu' : 'nav'}>
           {navlink.map((link, i)=>(
-            /*  <Link className="link" key={i} to={link.url}>{link.text}</Link> */
-            <a className="link" key={i} href={link.url}>{link.text}</a>
+            <Link className="link" key={i} to={link.url}>{link.text}</Link>
           ))}
         </div>
         <button className="toggle" onClick={() => setResponsive(!responsive)}>

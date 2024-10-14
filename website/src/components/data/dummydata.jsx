@@ -158,21 +158,21 @@ export const testimonials = [
   {
     id: 1,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitordapibus dictum.Fusce faucibus ligula scelerisque, eleifend turpis in",
-    image: "./images/testimonials/team-1.png",
+    image: "./images/Testimonials/team-1.png",
     name: "Alamin Musa",
     post: "Front End Developer",
   },
   {
     id: 2,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitordapibus dictum.Fusce faucibus ligula scelerisque, eleifend turpis in",
-    image: "./images/testimonials/team-2.png",
+    image: "./images/Testimonials/team-2.png",
     name: "Alex Ander",
     post: "Back End Developer",
   },
   {
     id: 3,
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam porttitordapibus dictum.Fusce faucibus ligula scelerisque, eleifend turpis in",
-    image: "./images/testimonials/team-3.png",
+    image: "./images/Testimonials/team-3.png",
     name: "GorkCoder",
     post: "React Developer",
   },
@@ -184,7 +184,7 @@ export const blog = [
     date: "Jun 27, 2022",
     author: "Dorian Gray",
     desc: "Lorem Ipsum has been standard. Lorem Ipsum is simply text of the printing and typesetting industry. Lorem Ipsum has been",
-    cover: "./images/blog/b1.png",
+    cover: "./images/Blog/b1.png",
   },
   {
     id: 2,
@@ -192,7 +192,7 @@ export const blog = [
     date: "Jun 27, 2022",
     author: "Dorian Gray",
     desc: "Lorem Ipsum has been standard. Lorem Ipsum is simply text of the printing and typesetting industry. Lorem Ipsum has been",
-    cover: "./images/blog/b2.png",
+    cover: "./images/Blog/b2.png",
   },
   {
     id: 3,
@@ -200,7 +200,7 @@ export const blog = [
     date: "Jun 27, 2022",
     author: "Dorian Gray",
     desc: "Lorem Ipsum has been standard. Lorem Ipsum is simply text of the printing and typesetting industry. Lorem Ipsum has been",
-    cover: "./images/blog/b3.png",
+    cover: "./images/Blog/b3.png",
   },
 ]
 export const contact = [
