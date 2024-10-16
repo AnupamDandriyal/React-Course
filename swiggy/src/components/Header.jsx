@@ -21,7 +21,7 @@ const Header = () => {
     { name: 'Offers', icon: <BiSolidOffer />,supscript:'New'},
     { name: 'Help', icon: <IoMdHelpCircleOutline/> },
     { name: 'Sign In', icon: <FaRegUserCircle /> },
-    { name: 'Cart', icon: <MdOutlineShoppingCart />,supscript:4 }]
+    { name: 'Cart', icon: <MdOutlineShoppingCart />,supscript:(4) }]
   return (
     <>
       <div className="black-overlay w-full h-full fixed duration-500"  style={{ opacity: sideToggle ? 1 : 0, visibility: sideToggle ? 'visible' : 'hidden' }} onClick={handleSideToggle}></div>
