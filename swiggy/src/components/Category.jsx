@@ -69,6 +69,7 @@ const Category = () => {
             ))}
           </div>
         </div>
+        <div className="mt-[10px] border-b-2 border-gray-200"/>
       </div>
     </div>
   );
