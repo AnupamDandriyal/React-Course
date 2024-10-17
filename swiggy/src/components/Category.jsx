@@ -32,7 +32,7 @@ const Category = () => {
 
 
   return (
-    <div className="category">
+    <div className="category mt-[80px]">
       <div className="w-[85%] my-0 mx-auto mt-[30px] p-[10px]">
         <div className="flex justify-between w-full">
           <span className="font-bold text-[19px]">Whats on your mind?</span>
@@ -54,7 +54,7 @@ const Category = () => {
         </div>
         <div className="flex w-full overflow-hidden">
           <div
-            className="flex w-max transition-transform duration-500 ease-in-out"
+            className="flex w-max  transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(${-(translateX * 100)}%)` }}
           >
             {categories.map((category, i) => (
@@ -62,7 +62,7 @@ const Category = () => {
                 key={i}
                 src={category.image}
                 alt="category"
-                className="w-[200px] h-[200px] rounded-full"
+                className="w-[200px] h-[200px] "
               />
             ))}
           </div>

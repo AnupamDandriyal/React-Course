@@ -24,8 +24,8 @@ const Header = () => {
     { name: 'Cart', icon: <MdOutlineShoppingCart />,supscript:(4) }]
   return (
     <>
-      <div className="black-overlay w-full h-full fixed duration-500"  style={{ opacity: sideToggle ? 1 : 0, visibility: sideToggle ? 'visible' : 'hidden' }} onClick={handleSideToggle}></div>
-      <div className=" p-[25px] flex-col w-[450px] bg-white h-full absolute duration-[600ms]" style={{ left: sideToggle ? '0%' : '-100%' }}>
+      <div className="black-overlay z-10 w-full h-full fixed duration-500"  style={{ opacity: sideToggle ? 1 : 0, visibility: sideToggle ? 'visible' : 'hidden' }} onClick={handleSideToggle}></div>
+      <div className=" p-[25px] flex-col w-[450px] bg-white h-full absolute duration-[600ms] z-20" style={{ left: sideToggle ? '0%' : '-100%' }}>
         <IoClose onClick={handleSideToggle} className=" mb-[50px] cursor-pointer hover:text-orange-400 text-[25px] text-gray-400 " />
 
         <input type="text" placeholder="Search for area,street name.." className=" mb-[25px] shadow-md w-[100%] h-[45px] pl-[10px] rounded-[5px]" />
@@ -53,7 +53,7 @@ const Header = () => {
           </div>
          </button>
       </div>
-    <header className="shadow-xl">
+    <header className="shadow-xl fixed top-0 w-screen z-[1000] bg-white">
      
       <div className="w-[85%] my-0 mx-auto flex justify-between items-center ">
         <div id="logo" className="flex justify-center gap-[25px]">
@@ -65,9 +65,9 @@ const Header = () => {
           </div>
         </div>
 
-          <div id="navlinks" className="flex gap-[45px] text-gray-400 font-semibold text-[18px] items-center ">
+          <div id="navlinks" className="hidden md:flex gap-[45px] text-gray-400 font-semibold text-[18px] items-center ">
             {links.map((link, i) => (
-              <a key={i} className="flex gap-[8px] items-center hover:text-orange-400" href="#"><div className="text-[22px]" >{link.icon}</div>{link.name}<sup className="text-[10px] text-orange-400 font-bold">{link.supscript}</sup></a>
+              <a key={i} className="flex gap-[3px] items-center hover:text-orange-400" href="#"><div className="text-[22px]" >{link.icon}</div>{link.name}<sup className="text-[10px] text-orange-400 font-bold">{link.supscript}</sup></a>
             ))}
           </div>
       </div>

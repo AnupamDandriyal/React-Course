@@ -32,7 +32,7 @@ const TopRestaurant = () => {
 
   return (
     <div className="category">
-      <div className="w-[85%] my-0 mx-auto mt-[30px] p-[10px]">
+      <div className="w-[85%] my-0 mx-auto mt-[30px] ">
         <div className="flex justify-between w-full">
           <span className="font-bold text-[19px]">
             Top Restaurant Chains in Haridwar
@@ -53,9 +53,9 @@ const TopRestaurant = () => {
             </button>
           </div>
         </div>
-        <div className="flex mt-[20px] w-full overflow-hidden">
+        <div className="flex p-[10px] mt-[20px] w-full overflow-hidden">
           <div
-            className="flex gap-[18px] w-max transition-transform duration-500 ease-in-out"
+            className="flex gap-[20px] w-max transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(${-(translateX * 100)}%)` }}
           >
             {restaurant.map((item, i) => (

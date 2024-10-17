@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 
 import { MdStars } from "react-icons/md";
 
-const Card = ({item}) => {
+const Card = ({ item, md }) => {
   return (
-    <div className="w-[300px] h-[350px] flex-col ">
+    <div className={`${md} md:w-[300px] hover:scale-105 duration-150 md:h-[350px] flex-col mx-0 my-auto`}>
                 <div className="h-[65%] w-full relative">
                   <div className="relative h-full w-full rounded-[15px] overflow-hidden">
                     <img
@@ -32,6 +32,7 @@ const Card = ({item}) => {
 }
 
 Card.propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object,
+  md:PropTypes.string
 }
 export default Card
