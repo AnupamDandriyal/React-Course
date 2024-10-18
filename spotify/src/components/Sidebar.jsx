@@ -32,13 +32,13 @@ const Sidebar = () => {
         <div className='flex flex-col bg-[#242424] rounded font-semibold items-start justify-start p-4'>
           <h1>Create your first playlist</h1>
           <p className='font-light'>it&apos;s easy we will help you </p>
-          <button className='px-4 py-1.5 rounded-full bg-white text-black text-[15px] mt-4'>Create Playlist</button>
+          <button className='px-4 py-1.5 rounded-full bg-white font-bold text-black text-[15px] mt-4'>Create Playlist</button>
         </div>
 
         <div className='flex flex-col bg-[#242424] rounded font-semibold items-start justify-start p-4'>
           <h1>Lets&apos;s find some podcasts to follow</h1>
           <p className='font-light'>We&apos;ll keep you update on new episodes!</p>
-          <button className='px-4 py-1.5 rounded-full bg-white text-black text-[15px] mt-4'>Browse Podcast</button>
+          <button className='font-bold px-4 py-1.5 rounded-full bg-white text-black text-[15px] mt-4'>Browse Podcast</button>
         </div>
       </div>
     </div>

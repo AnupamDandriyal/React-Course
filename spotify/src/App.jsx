@@ -1,5 +1,6 @@
 
 import './App.css'
+import Player from './components/Player'
 import Sidebar from './components/Sidebar'
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
       <div className='h-[90%] flex'>
         <Sidebar/>
       </div>
+      <Player/>
     </div>
+
   )
 }
 
