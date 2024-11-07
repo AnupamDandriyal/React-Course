@@ -71,7 +71,7 @@ export const albumsData = [
     {   
         id:0,
         name: "Top 50 Global",
-        image: img8.jpg,
+        image: img8,
         desc:"Your weekly update of the most played tracks",
         bgColor:"#2a4365"
     },
