@@ -1,11 +1,14 @@
 import { useParams } from "react-router-dom"
 import Navbar from "./Navbar"
 import { albumsData, assets, songsData } from "../assets/assets";
+import { useContext } from "react";
+import { PlayerContext } from "./context/PlayerContext";
 
 
 const DisplayAlbum = () => {
   const { id } = useParams();
   const albumData = albumsData[id];
+  const {playWithId} = useContext(PlayerContext)
   return (
     <>
       <Navbar />
@@ -26,14 +29,14 @@ const DisplayAlbum = () => {
       </div>
       <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 text-[#a7a7a7]">
         <p><b className="mr-5 ml-2">#</b>Title</p>
-        <p className="ml-9">Album</p>
+        <p className="ml-6">Album</p>
         <p className="hidden sm:block">Date Added</p>
         <img className="m-auto w-4" src={assets.clock_icon} alt="clock-icon" />
       </div>
       <hr />
       {
         songsData.map((item, i) => (
-          <div key={i} className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 text-[#a7a7a7] items-center hover:bg-[#ffffff2b]">
+          <div onClick={()=>playWithId(item.id)} key={i} className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 text-[#a7a7a7] items-center hover:bg-[#ffffff2b]">
             <p className="text-white">
               <b className="mr-4 text-[#a7a7a7]">{i + 1}</b>
               <img className="inline w-10 mr-5" src={item.image} alt="image" />
