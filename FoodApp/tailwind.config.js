@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      gridTemplateColumns: {
+        'auto-fill-240':'repeat(auto-fill,minmax(240px,1fr))'
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
