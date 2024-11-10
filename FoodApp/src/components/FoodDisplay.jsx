@@ -11,9 +11,12 @@ const FoodDisplay = ({category}) => {
       <h2 className="text-[max(2vw,24px)] font-semibold mb-3">Top dishes near you</h2>
       <div className="food-list grid grid-cols-auto-fill-240 gap-[30px] gap-y-[50px]">
         {
-          food_list.map((item, i) => (
-            <FoodItem key={i} item={item} />
-          ))
+          food_list.map((item, i) => {
+            if(category==='All' || category===item.category){
+              return <FoodItem key={i} item={item} />
+            }
+          }
+          )
         }
       </div>
 
