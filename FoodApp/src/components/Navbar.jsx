@@ -1,13 +1,12 @@
 import { assets } from "../assets/assets";
 import { useState } from "react";
 import { PiHandbagFill } from "react-icons/pi";
-
 import { FiSearch } from "react-icons/fi";
 
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
   return (
-    <div className="h-20  flex items-center justify-between   ">
+    <div className="h-20 fixed top-0 left-0 w-full m-auto flex items-center justify-between px-36 z-50 bg-white shadow-sm">
       <img className="w-[150px] cursor-pointer logo" src={assets.logo} alt="logo" />
       <ul className="navbar-menu flex gap-8 font-semibold text-gray-300 cursor-pointer text-[18px]">
         <li onClick={()=>setMenu('home')} className={menu==='home' ? 'active':''}>home</li>
