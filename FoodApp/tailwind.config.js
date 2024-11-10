@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        'auto-fill-240':'repeat(auto-fill,minmax(240px,1fr))'
+        'auto-fill-240': 'repeat(auto-fill,minmax(240px,1fr))',
+        'custom-2-1-1':'2fr 1fr 1fr',
       },
       keyframes: {
         fadeIn: {

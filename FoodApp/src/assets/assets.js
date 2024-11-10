@@ -48,7 +48,12 @@ import food_31 from './food_31.png';
 import food_32 from './food_32.png';
 import ratings from './rating_starts.png';
 import remove_icon_red from './remove_icon_red.png'
-import add_icon_green from './add_icon_green.png'
+import add_icon_green from './add_icon_green.png';
+import facebook_icon from './facebook_icon.png'
+import twitter_icon from './twitter_icon.png'
+import linkedin_icon from './linkedin_icon.png'
+import play_store from './play_Store.png'
+import app_store from './app_store.png'
 
 
 export const assets ={
@@ -61,7 +66,8 @@ export const assets ={
     search_icon,
     basket_icon,
     ratings, remove_icon_red,
-    add_icon_green
+    add_icon_green, facebook_icon,
+    twitter_icon,linkedin_icon,play_store,app_store
 }
 
 export const menu_list = [

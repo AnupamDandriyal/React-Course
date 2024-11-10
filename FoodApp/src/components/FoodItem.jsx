@@ -9,7 +9,7 @@ const FoodItem = ({ item }) => {
     <div className='flex flex-col rounded-[10px] gap-2 animate-fadeInOnce cursor-pointer shadow-xl hover:scale-105'>
       <div className='relative'>   
         <img className='rounded-t-[10px]' src={item.image} alt="food" />
-        <div className='absolute z-50 bottom-2 right-5 bg-white p-1 rounded-xl'>
+        <div className='absolute bottom-2 right-5 bg-white p-1 rounded-xl'>
           {
         !cartItems[item.id] 
           ? <img className='w-5' onClick={()=>addToCart(item.id)} src={assets.add_icon} alt='add' />
