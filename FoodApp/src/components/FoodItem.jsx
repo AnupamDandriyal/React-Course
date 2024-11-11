@@ -8,7 +8,7 @@ const FoodItem = ({ item }) => {
   return (
     <div className='flex flex-col rounded-[10px] gap-2 animate-fadeInOnce cursor-pointer shadow-xl hover:scale-105'>
       <div className='relative'>   
-        <img className='rounded-t-[10px]' src={item.image} alt="food" />
+        <img className='rounded-t-[10px] w-full' src={item.image} alt="food" />
         <div className='absolute bottom-2 right-5 bg-white p-1 rounded-xl'>
           {
         !cartItems[item.id] 

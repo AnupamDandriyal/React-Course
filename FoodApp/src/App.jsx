@@ -4,12 +4,16 @@ import Home from "./pages/home/Home";
 import Cart from "./pages/cart/Cart";
 import PlaceOrder from "./pages/placeorder/PlaceOrder";
 import Footer from "./components/Footer";
+import LoginPopUp from "./components/LoginPopUp";
+import { useState } from "react";
 
 function App() {
+  const [showLogin,setShowLogin] = useState(false)
   return (
-    <>
-      <div className="w-[80%] m-auto ">
-        <Navbar />
+    <div className="mt-24">
+      {showLogin? <LoginPopUp/> : <></>}
+      <div className="w-[80%] m-auto">
+        <Navbar setShowLogin={setShowLogin} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
@@ -17,7 +21,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
