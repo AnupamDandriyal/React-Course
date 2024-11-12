@@ -54,6 +54,7 @@ import twitter_icon from './twitter_icon.png'
 import linkedin_icon from './linkedin_icon.png'
 import play_store from './play_Store.png'
 import app_store from './app_store.png'
+import cross_icon from './cross_icon.png'
 
 
 export const assets ={
@@ -67,7 +68,8 @@ export const assets ={
     basket_icon,
     ratings, remove_icon_red,
     add_icon_green, facebook_icon,
-    twitter_icon,linkedin_icon,play_store,app_store
+    twitter_icon, linkedin_icon, play_store, app_store,
+    cross_icon
 }
 
 export const menu_list = [

@@ -11,9 +11,11 @@ const Navbar = ({setShowLogin}) => {
   return (
     <div className="navbar fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
       <div className="h-20 flex items-center justify-between w-[80%] m-auto">
-      <img className="w-[150px] cursor-pointer logo" src={assets.logo} alt="logo" />
+        <Link to={'/'}>
+        <img className="w-[150px] cursor-pointer logo" src={assets.logo} alt="logo" />
+        </Link>
       <ul className="navbar-menu flex gap-8 font-semibold text-gray-300 cursor-pointer text-[18px]">
-        <Link to={'/'} onClick={()=>setMenu('home')} className={menu==='home' ? 'active':''}>home</Link>
+        <a href="#header" onClick={()=>setMenu('home')} className={menu==='home' ? 'active':''}>home</a>
         <a href="#menu" onClick={()=>setMenu('menu')} className={menu==='menu' ? 'active':''}>menu</a>
         <a href='#app' onClick={()=>setMenu('mobile-app')} className={menu==='mobile-app' ? 'active':''}>mobile-app</a>
         <a href="#footer" onClick={()=>setMenu('contact-us')} className={menu==='contact-us' ? 'active':''}>contact us</a>
@@ -36,7 +38,7 @@ const Navbar = ({setShowLogin}) => {
   );
 };
 
-Navbar.proptypes = {
+Navbar.propTypes = {
   setShowLogin:PropTypes.func.isRequired,
 }
 export default Navbar;
