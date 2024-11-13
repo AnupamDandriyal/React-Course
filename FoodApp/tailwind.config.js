@@ -8,7 +8,8 @@ export default {
     extend: {
       gridTemplateColumns: {
         'auto-fill-240': 'repeat(auto-fill,minmax(240px,1fr))',
-        'custom-2-1-1':'2fr 1fr 1fr',
+        'custom-2-1-1': '2fr 1fr 1fr',
+        'cart-grid':'1fr 1.5fr 1fr 1fr 1fr 0.5fr'
       },
       keyframes: {
         fadeIn: {

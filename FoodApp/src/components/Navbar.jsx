@@ -1,21 +1,23 @@
 import { assets } from "../assets/assets";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { PiHandbagFill } from "react-icons/pi";
 import { FiSearch } from "react-icons/fi";
 import '../index.css'
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { StoreContext } from "../context/StoreContext";
 
 const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState("home");
+  const {getTotalAmount} = useContext(StoreContext)
   return (
     <div className="navbar fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
       <div className="h-20 flex items-center justify-between w-[80%] m-auto">
-        <Link to={'/'}>
+        <Link to='/'>
         <img className="w-[150px] cursor-pointer logo" src={assets.logo} alt="logo" />
         </Link>
       <ul className="navbar-menu flex gap-8 font-semibold text-gray-300 cursor-pointer text-[18px]">
-        <a href="#header" onClick={()=>setMenu('home')} className={menu==='home' ? 'active':''}>home</a>
+        <Link to="/" onClick={()=>setMenu('home')} className={menu==='home' ? 'active':''}>home</Link>
         <a href="#menu" onClick={()=>setMenu('menu')} className={menu==='menu' ? 'active':''}>menu</a>
         <a href='#app' onClick={()=>setMenu('mobile-app')} className={menu==='mobile-app' ? 'active':''}>mobile-app</a>
         <a href="#footer" onClick={()=>setMenu('contact-us')} className={menu==='contact-us' ? 'active':''}>contact us</a>
@@ -23,9 +25,13 @@ const Navbar = ({setShowLogin}) => {
       <div className="navbar-right flex items-center gap-[40px]">
         <FiSearch className=" img text-3xl text-gray-500" />
         <div className="navbar-search-icon">
-          <div className="relative">
-          <PiHandbagFill className="img text-3xl text-gray-500 " />
-          <div className="dot absolute w-[10px] h-[10px] bg-red-500 rounded-[10px] top-[1px] right-[-2px]"></div>
+            <div className="relative">
+              <Link to='/cart'>
+                <PiHandbagFill className="img text-3xl text-gray-500 " />
+                {getTotalAmount()>0 ? <div className="dot absolute w-[10px] h-[10px] bg-red-500 rounded-[10px] top-[1px] right-[-2px]"></div> : '' }
+              
+              </Link>
+          
           </div>
          
         </div>
