@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const { food_list, cartItems, removeFromCart,getTotalAmount } = useContext(StoreContext);
+  const { food_list, cartItems, removeFromCart, getTotalAmount } = useContext(StoreContext);
+  const navigate = useNavigate();
   return (
     <div className="cart">
       <div className="cart-items">
@@ -39,7 +41,7 @@ const Cart = () => {
       </div>
       <div className="cart-bottom mt-[80px] flex justify-between gap-[max(12vw,20px)]">
         <div className="cart-total flex-1 flex flex-col gap-[20px]">
-          <h2>Cart Total</h2>
+          <h2 className="font-semibold">Cart Total</h2>
           <div>
             <div className="cart-total-details flex justify-between text-[#555]">
               <p>SubTotal</p>
@@ -48,15 +50,15 @@ const Cart = () => {
             <hr className="my-[10px]" />
             <div className="cart-total-details flex justify-between text-[#555]">
               <p>Delivery Fee</p>
-              <p>{(5).toFixed(2)}</p>
+              <p>{getTotalAmount()===0?'0.00' : (5).toFixed(2)}</p>
             </div>
             <hr className="my-[10px]" />
             <div className="cart-total-details flex justify-between">
               <p>Total</p>
-              <p>{(getTotalAmount() + 5).toFixed(2)}</p>
+              <p>{getTotalAmount()===0 ? '0.00' : (getTotalAmount() + 5).toFixed(2)}</p>
             </div>
           </div>
-          <button className="border py-2 rounded w-[max(15vw,200px)]
+          <button onClick={()=>navigate('/place-order')} className="border py-2 rounded w-[max(15vw,200px)]
           text-white bg-red-500">Proceed to Checkout</button>
         </div>
         <div className="cart-promocode flex-1">
