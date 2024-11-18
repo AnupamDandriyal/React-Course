@@ -1,22 +1,15 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://youtube138.p.rapidapi.com';
+const BASE_URL = 'https://www.googleapis.com/youtube/v3';
+const API_KEY = 'AIzaSyAcssVoZbVxa6sYrHOzPgR8KpJxPfKcJ_A'
 
-const options = {
-  params: {
-    hl: 'en',
-    gl: 'US'
-  },
-  headers: {
-    'x-rapidapi-key': import.meta.env.VITE_YOUTUBE_API_KEY,
-    'x-rapidapi-host': 'youtube138.p.rapidapi.com'
-  }
-};
 
-export const fetchDataFromApi = async (url) => {
+
+export const fetchDataFromApi = async (endpoints,params={}) => {
   try {
-    const { data } = await axios.get(`${BASE_URL}/${url}`, options);
-    return data;
+    const response = await axios.get(`${BASE_URL}/${endpoints}`, { params: { ...params, key: API_KEY } });
+    console.log(response.data);
+    return response.data
   } catch (error) {
     console.error(error);
   }

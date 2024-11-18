@@ -1,11 +1,11 @@
-import { useContext } from 'react'
-import {categories} from '../utils/constants'
+import { useContext, useEffect } from 'react'
+import {categories, menuItems} from '../utils/constants'
 import LeftNavMenuItem from './LeftNavMenuItem'
 import { Context } from '../context/contextAPI'
 import { useNavigate } from 'react-router-dom'
 
 const LeftNav = () => {
-  const { selectCategories, setSelectCategories, mobileMenu } = useContext(Context);
+  const { selectCategories, setSelectCategories, mobileMenu,setMobileMenu } = useContext(Context);
   const navigate = useNavigate()
   const clickHandle = (name, type) => {
     switch (type) {
@@ -18,20 +18,33 @@ const LeftNav = () => {
       default:
         break;
     }
-    
   }
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMobileMenu(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+  }, [setMobileMenu]);
+
+  
   return (
-    <div className=" md:block w-[240px] overflow-y-auto h-full py-4 bg-black absolute md:relative z-10 translate-x-[-240px] md:translate-x-0 transition-all">
+    <div className={`leftNav md:block w-[240px] overflow-y-auto h-full py-4 bg-black absolute md:relative z-10 ${mobileMenu ? 'block py-0 h-[92%] ':'hidden'} transition-all`} >
       <div className="flex px-5 flex-col  ">
         {categories.map((item, i) => (
           <div key={i}>
             <LeftNavMenuItem text={item.type === 'home' ? 'Home' : item.name} icon={<item.icon />} action={() => { clickHandle(item.name, item.type); navigate('/')}}
               className={`${selectCategories === item.name ? "bg-white/[0.15]" : ''}`} />
-            {item.divider && (<hr className='my-5 border-white/[0.2]' />)}
           </div>
         ))}
-        <hr className='my-3 border-white/[0.2]' />
-        <div className=' flex items-center justify-center text-[12px] text-gray-400'>&copy; 2024 Google LLC</div>
+        <hr className={` ${mobileMenu ? 'my-2' : 'my-3'} border-white/[0.2]`} />
+        {menuItems.map((item, i) => (
+          <LeftNavMenuItem key={i} text={item.name}icon={<item.icon />}  />
+        ))}
+        <div className=' flex mt-5 items-center justify-center text-[12px] text-gray-400'>&copy; 2024 Google LLC</div>
         
       </div>
     </div>

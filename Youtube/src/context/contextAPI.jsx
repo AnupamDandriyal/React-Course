@@ -4,24 +4,46 @@ import { fetchDataFromApi } from '../utils/api'
 import {createContext, useEffect, useState} from 'react'
 
 export const Context = createContext();
-export const AppContext = (props) => {
+export const AppContext = ({ children }) => {
   const [loading,setLoading] = useState(false);
   const [searchResults,setSearchResults] = useState([]);
-  const [selectCategories,setSelectCategories] = useState('New');
+  const [selectCategories,setSelectCategories] = useState('0');
   const [mobileMenu, setMobileMenu] = useState(false);
   
-  useEffect(() => { 
-    fetechSelectedData(selectCategories)
-  }, [selectCategories]);
-
-  const fetechSelectedData = (query) => {
-    setLoading(true);
-    fetchDataFromApi(`search/?q=${query}`).then(({ contents }) => {
-      console.log(contents);
-      setSearchResults(contents);
-      setLoading(false);
-  });
+  const fetechSelectedData = async (params) => {
+    setLoading(true)
+   try {
+     const res = await fetchDataFromApi('videos', params);
+     console.log(res.items)
+   } catch (error) {
+     console.error(error)
+    }
+   finally {
+     setLoading(false)
+    }
   }
+
+  useEffect(() => {
+    if (selectCategories) {
+      if (selectCategories === 'Home') {
+        fetechSelectedData({
+          part: 'snippet,contentDetails,statistics',
+          regionCode: 'IN',
+          maxResult: 20,
+          chart:'mostPopular',
+        })
+      }
+      else {
+        fetechSelectedData({
+          part: 'snippet,contentDetails,statistics',
+          regionCode: 'IN',
+          maxResult: 20,
+          chart:'mostPopular',
+          videoCategoryId:selectCategories
+        })
+      }
+    }
+  },[selectCategories])
 
 
 
@@ -30,7 +52,7 @@ export const AppContext = (props) => {
   
   return (
     <Context.Provider value={contextValue}>
-      {props.children}
+      {children}
     </Context.Provider>
   )
 }

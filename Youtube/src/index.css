@@ -49,6 +49,10 @@ code {
     background-color: #fdba2c;
     animation: loading 3s linear 2s infinite;
 }
+
+.leftNav::-webkit-scrollbar{
+    display: none;
+}
 @keyframes loading {
     from {
         left: 50%;

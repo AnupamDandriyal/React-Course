@@ -1,6 +1,5 @@
 
 
-import './App.css'
 import { AppContext } from './context/contextAPI'
 import {BrowserRouter, Routes,Route} from 'react-router-dom'
 import Feed from './components/Feed'
