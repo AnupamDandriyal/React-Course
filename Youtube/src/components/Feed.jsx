@@ -5,6 +5,7 @@ import VideoCard from "./VideoCard";
 
 const Feed = () => {
   const { loading, searchResults } = useContext(Context);
+  console.log('Feed is uploaded', searchResults)
 
   useEffect(() => {
     document.getElementById("root").classList.remove("custom-h");

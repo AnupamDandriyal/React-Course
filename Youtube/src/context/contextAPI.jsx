@@ -14,7 +14,8 @@ export const AppContext = ({ children }) => {
     setLoading(true)
    try {
      const res = await fetchDataFromApi('videos', params);
-     console.log(res.items)
+     /* console.log(res.items) */
+     setSearchResults(res.items)
    } catch (error) {
      console.error(error)
     }

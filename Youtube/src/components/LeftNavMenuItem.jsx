@@ -1,20 +1,16 @@
-import PropTypes from 'prop-types'
+/* eslint-disable react/prop-types */
 
-const LeftNavMenuItem = ({text,icon,className,action}) => {
+
+const LeftNavMenuItem = ({item,isSelected,onclick}) => {
   return (
-    <div className={"text-white text-[14px] font-semibold cursor-pointer h-10 flex items-center px-3 mb-[1px] rounded-lg hover:bg-white/[0.15] " + className}
-    onClick={action}
+    <div className={`text-white text-[14px] font-semibold cursor-pointer h-10 flex items-center px-3 mb-[1px] rounded-lg hover:bg-white/[0.15] ${isSelected ? "bg-white/[0.15]" : ''}`}
+    onClick={item.type==='category' ? onclick : undefined}
     >
-      <span className=' text-[17px] mr-3'>{icon} </span>
-      {text}
+      <span className=' text-[17px] mr-3'> {item.icon} </span>
+      {item.name}
     </div>
   )
 }
-LeftNavMenuItem.propTypes = {
-  text: PropTypes.string.isRequired,
-  icon: PropTypes.object.isRequired,
-  className: PropTypes.string.isRequired,
-  action:PropTypes.func.isRequired 
-}
+
 
 export default LeftNavMenuItem

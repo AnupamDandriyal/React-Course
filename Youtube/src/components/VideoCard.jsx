@@ -5,10 +5,10 @@ import PropTypes from 'prop-types'
 import VideoLenghth from '../shared/VideoLenghth';
 const VideoCard = ({video}) => {
   return (
-    <Link to={`/video/${video?.videoId}`}>
+    <Link to={`/video/${video?.snippet.categoryId}/${video.id}}`}>
       <div className="flex flex-col mb-8 justify-center">
-        <div className="relative  h-48 md:h-40 md:rounded-xl overflow-hidden">
-          <img className='h-full w-full object-cover' src={video?.thumbnails[0]?.url} alt="video" />
+        <div className="relative h-48 md:h-40 md:rounded-xl overflow-hidden">
+          <img className='h-full w-full object-cover' src={video?.snippet?.thumbnails?.medium?.url} alt="video" />
           {video?.lengthSeconds && (<VideoLenghth time={video?.lengthSeconds} />)}
         </div>
         <div className="flex text-white mt-3">
