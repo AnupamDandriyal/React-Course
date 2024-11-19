@@ -30,7 +30,8 @@ export const AppContext = ({ children }) => {
         fetechSelectedData({
           part: 'snippet,contentDetails,statistics',
           regionCode: 'IN',
-          chart:'mostPopular',
+          chart: 'mostPopular',
+          maxResults:50
         })
       }
       else {
