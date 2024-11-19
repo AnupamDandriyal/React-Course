@@ -30,7 +30,6 @@ export const AppContext = ({ children }) => {
         fetechSelectedData({
           part: 'snippet,contentDetails,statistics',
           regionCode: 'IN',
-          maxResult: 20,
           chart:'mostPopular',
         })
       }
@@ -38,7 +37,6 @@ export const AppContext = ({ children }) => {
         fetechSelectedData({
           part: 'snippet,contentDetails,statistics',
           regionCode: 'IN',
-          maxResult: 20,
           chart:'mostPopular',
           videoCategoryId:selectCategories
         })

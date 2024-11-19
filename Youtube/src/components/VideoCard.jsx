@@ -1,4 +1,5 @@
-import { abbreviateNumber } from 'js-abbreviation-number';
+/* eslint-disable react/prop-types */
+/* import { abbreviateNumber } from 'js-abbreviation-number';
 import { BsFillCheckCircleFill } from 'react-icons/bs'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
@@ -52,4 +53,24 @@ const VideoCard = ({video}) => {
 VideoCard.propTypes = {
   video:PropTypes.object.isRequired,
 }
-export default VideoCard
+export default VideoCard */
+
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
+const VideoCard = ({ video }) => {
+  const [channelData, setChannelData] = useState();
+  return (
+    <Link to={`video/${video?.snippet?.categoryId}/${video?.id}`}>
+    <div className="flex border flex-col mb-8 justify-center">
+        <div className="relative h-48 md:h-40 md:rounded-xl overflow-hidden">
+          
+       <img className='h-full w-full object-cover' src={video?.snippet?.thumbnails?.medium?.url} alt="video" /> 
+      </div>
+    </div>
+  </Link>
+  )
+};
+
+export default VideoCard;
+ 
