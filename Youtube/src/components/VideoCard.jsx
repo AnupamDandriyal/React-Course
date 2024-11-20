@@ -68,7 +68,7 @@ const VideoCard = ({ video }) => {
       part: "snippet,contentDetails,statistics",
       id: video?.snippet?.channelId,
     });
-    console.log(data.items[0]);
+    /* console.log(data.items[0]); */
     setChannelData(data.items[0]);
   };
 

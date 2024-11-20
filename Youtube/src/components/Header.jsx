@@ -9,6 +9,7 @@ import { useContext, useState } from "react";
 import { Context } from "../context/contextAPI";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loader from "../shared/Loader";
+import { IoMdMic } from "react-icons/io";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,7 +31,7 @@ const Header = () => {
   const { pathName } = useLocation();
   const pageName = pathName?.split("/")?.filter(Boolean)?.[0];
   return (
-    <div className="sticky top-0 z-10 flex items-center justify-between h-14 px-4 md:px-5 bg-white dark:bg-black">
+    <div className="sticky top-0 z-50 flex items-center justify-between h-14 px-4 md:px-5 bg-white dark:bg-black">
       {loading && <Loader />}
       <div className="flex h-5 items-center">
         {pageName !== "video" && (
@@ -68,7 +69,9 @@ const Header = () => {
           </div>
           <button className="w-[40px] md:w-[60px] h-8 md:h-10 flex items-center justify-center border border-l-0 border-[#303030] rounded-r-3xl bg-white/[0.1]">
             <IoIosSearch className="text-white text-xl"/>
-            </button>
+        </button>
+        
+        <IoMdMic className="text-white ml-6 p-2 h-[34px] w-[34px] bg-white/[0.15] cursor-pointer rounded-3xl" />
       </div>
       <div className="flex items-center">
         <div className="hidden md:flex ">

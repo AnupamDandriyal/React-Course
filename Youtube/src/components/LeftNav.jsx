@@ -26,8 +26,8 @@ const LeftNav = () => {
 
   
   return (
-    <div className={`leftNav md:block w-[240px] overflow-y-auto h-full py-4 bg-black absolute md:relative z-10 ${mobileMenu ? 'block py-0 h-[91%] ':'hidden'} transition-all`} >
-      <div className="flex px-5 flex-col  ">
+    <div className={`leftNav md:block w-[240px] overflow-y-auto h-[92.9vh] py-4 bg-black absolute md:relative z-10 ${mobileMenu ? 'block py-0 ':'hidden'} transition-all`} >
+      <div className={`flex px-5 flex-col ${mobileMenu ? 'my-[-15px]' : ''}`}>
         {categories.map((item) => (
           <LeftNavMenuItem key={item.id} item={item} isSelected={item.id == selectCategories} onclick={()=>clickHandle(item.id,item.name) } />
         ))}
@@ -36,7 +36,7 @@ const LeftNav = () => {
           <LeftNavMenuItem key={item.name} item={item} isSelected={false} onclick={undefined}
           />
         ))}
-        <div className=' flex mt-5 items-center justify-center text-[12px] text-gray-400'>&copy; 2024 Google LLC</div>
+        <div className=' flex mt-5 items-center justify-center text-[12px] text-gray-400 pb-4'>&copy; 2024 Google LLC</div>
         
       </div>
     </div>
