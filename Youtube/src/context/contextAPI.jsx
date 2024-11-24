@@ -31,7 +31,7 @@ export const AppContext = ({ children }) => {
           part: 'snippet,contentDetails,statistics',
           regionCode: 'IN',
           chart: 'mostPopular',
-          maxResults:50
+          maxResults:10
         })
       }
       else {

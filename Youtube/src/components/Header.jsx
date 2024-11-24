@@ -80,7 +80,7 @@ const Header = () => {
             value={searchQuery}
             />
             <button
-              className="mr-5"
+              className="mr-3"
               onClick={handleClearSearchQuery}
             >
               <CgClose className="text-lg text-white" />
