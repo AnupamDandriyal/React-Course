@@ -31,7 +31,7 @@ const Header = () => {
   const { pathName } = useLocation();
   const pageName = pathName?.split("/")?.filter(Boolean)?.[0];
   return (
-    <div className="sticky top-0 z-50 flex items-center justify-between h-14 px-4 md:px-5 bg-white dark:bg-black">
+    <div className="sticky top-0 z-50 flex items-center justify-between h-14 py-3 px-4 md:px-5 bg-white dark:bg-black">
       {loading && <Loader />}
       <div className="flex h-5 items-center">
         {pageName !== "video" && (
