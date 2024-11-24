@@ -22,7 +22,7 @@ const VideoCard = ({ video }) => {
     fetchChannelData();
   }, [video]);
   return (
-    <Link to={`video/${video?.snippet?.categoryId}/${video?.id}`}>
+    <Link to={`/video/${video?.snippet?.categoryId}/${video?.id}`}>
       <div className="flex flex-col mb-8 justify-center">
         <div className=" h-48 relative md:h-40 md:rounded-xl overflow-hidden">
           <img
@@ -31,8 +31,8 @@ const VideoCard = ({ video }) => {
             alt="video"
           />
           <span
-            className="text-white/[0.85] text-[15px] absolute bg-black px-1.5 rounded bottom-3
-           right-3"
+            className="text-white/[0.85] text-[13px] absolute bg-black flex items-center justify-center rounded bottom-3
+           right-3 h-5 w-10"
           >
             {formatDuration(video?.contentDetails?.duration)}
           </span>
