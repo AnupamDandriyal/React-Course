@@ -50,7 +50,7 @@ code {
     animation: loading 3s linear 2s infinite;
 }
 
-.leftNav::-webkit-scrollbar, .videoDetails::-webkit-scrollbar{
+.leftNav::-webkit-scrollbar, .videoDetails::-webkit-scrollbar, .searchResults::-webkit-scrollbar{
     display: none;
 }
 @keyframes loading {

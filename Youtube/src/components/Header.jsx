@@ -71,7 +71,7 @@ const Header = () => {
           <div className="flex justify-between items-center">
           <input
             type="text"
-            placeholder="search anything..."
+            placeholder={searchQuery ? searchQuery : 'search anything..'}
             className={`pl-5 pr-5 text-sm bg-transparent text-white outline-none md:pl-0 w-32 sm:w-44 md:w-64 lg:w-[500px]`}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyUp={(e) => {
